@@ -23,13 +23,24 @@ namespace BikeStoresApi.Controllers
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceResponse<GetCategoryDto>>> GetById(long id)
-        {
-            return Ok(await _categoryService.GetCategoryById(id));
+        {   
+            var response = await _categoryService.GetCategoryById(id);
+            if (response.Data == null)
+            {
+                return NotFound(response);
+            }
+            return Ok(response);
         }
         [HttpPost]
         public async Task<ActionResult<ServiceResponse<GetCategoryDto>>> AddCategory(AddCategoryDto newCategory)
         {
             return Ok(await _categoryService.AddCategory(newCategory));
+        }
+        [HttpPut("{id}")]
+
+        public async Task<ActionResult<ServiceResponse<GetCategoryDto>>> UpdateCategory(UpdateCategoryDto updateCategory)
+        {
+            return Ok(await _categoryService.UpdateCategory(updateCategory));
         }
     }
 }

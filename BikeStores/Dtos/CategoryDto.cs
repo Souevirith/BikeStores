@@ -8,5 +8,9 @@
     {
         public long Id { get; set; }
     }
+    public class UpdateCategoryDto : CategoryDto
+    {
+        public long Id { get; set; }
+    }
     public class AddCategoryDto : CategoryDto { }
 }
