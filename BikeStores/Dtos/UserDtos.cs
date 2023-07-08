@@ -1,11 +1,10 @@
 ﻿namespace BikeStoresApi.Dtos
 {
-    public class UserDtos
+    public class UserDto
     {
         public string Username { get; set; }
         public string Password { get; set; }
-
     }
-    public class UserRegissterDto : UserDtos { }
-    public class UserLoginDto : UserDtos { }
+    public class UserRigisterDto : UserDto { }
+    public class UserLoginDto : UserDto { }
 }
